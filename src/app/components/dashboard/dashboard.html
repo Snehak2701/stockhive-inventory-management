@@ -1,0 +1,184 @@
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <div>
+      <h1>📦 StockHive</h1>
+      <p>Inventory Management Dashboard</p>
+       <button class="logout-btn" (click)="logout()">
+      Logout
+    </button>
+    </div>
+
+   
+  </div>
+
+  <!-- Statistics -->
+  <div class="stats">
+
+    <div class="stat-card">
+      <h2>{{ totalProducts }}</h2>
+      <p>Total Products</p>
+    </div>
+
+    <div class="stat-card">
+      <h2>{{ lowStockProducts }}</h2>
+      <p>Low Stock</p>
+    </div>
+
+    <div class="stat-card">
+      <h2>{{ totalQuantity }}</h2>
+      <p>Total Quantity</p>
+    </div>
+
+  </div>
+
+  <!-- Toolbar -->
+  <div class="toolbar">
+
+    <input
+      type="text"
+      placeholder="🔍 Search by Name or SKU"
+      [(ngModel)]="searchText">
+
+    <label class="checkbox">
+      <input
+        type="checkbox"
+        [(ngModel)]="showLowStockOnly">
+
+      Low Stock Only
+    </label>
+
+    <button class="add-btn" (click)="showForm = !showForm">
+      ➕ Add Product
+    </button>
+
+  </div>
+
+  <!-- Add / Edit Product -->
+  <div class="form-card" *ngIf="showForm">
+
+    <h2>{{ newProduct.id ? 'Edit Product' : 'Add Product' }}</h2>
+
+    <div class="form-grid">
+
+      <input
+        placeholder="Product Name"
+        [(ngModel)]="newProduct.name">
+
+      <input
+        placeholder="SKU"
+        [(ngModel)]="newProduct.sku">
+
+      <input
+        type="number"
+        placeholder="Quantity"
+        [(ngModel)]="newProduct.quantity">
+
+      <input
+        type="number"
+        placeholder="Reorder Level"
+        [(ngModel)]="newProduct.reorderLevel">
+
+    </div>
+
+    <div class="form-buttons">
+
+      <button
+        *ngIf="!newProduct.id"
+        (click)="addProduct()">
+        Save Product
+      </button>
+
+      <button
+        *ngIf="newProduct.id"
+        (click)="updateProduct()">
+        Update Product
+      </button>
+
+    </div>
+ <!-- Empty State -->
+  <div *ngIf="filteredProducts.length === 0" class="empty-state">
+    <h2>📦 No Products Found</h2>
+    <p>Add your first product to start managing inventory.</p>
+  </div>
+
+  <!-- Product Cards -->
+  <div class="products">
+
+    <div
+      class="card"
+      *ngFor="let product of filteredProducts"
+      [class.low-stock]="product.quantity <= product.reorderLevel">
+
+      <!-- Product Details -->
+
+    </div>
+
+  </div>
+  </div>
+
+  <!-- Product Cards -->
+
+  <div class="products">
+
+    <div
+      class="card"
+      *ngFor="let product of filteredProducts"
+      [class.low-stock]="product.quantity <= product.reorderLevel">
+
+      <div class="card-header">
+
+        <h2>{{ product.name }}</h2>
+
+        <span
+          class="badge"
+          [class.badge-low]="product.quantity <= product.reorderLevel">
+
+          {{ product.quantity <= product.reorderLevel
+              ? 'LOW STOCK'
+              : 'IN STOCK' }}
+
+        </span>
+
+      </div>
+
+      <p><strong>SKU:</strong> {{ product.sku }}</p>
+
+      <p><strong>Quantity:</strong> {{ product.quantity }}</p>
+
+      <p><strong>Reorder Level:</strong> {{ product.reorderLevel }}</p>
+
+      <div class="actions">
+
+        <button
+          class="green"
+          (click)="increase(product)">
+          ➕
+        </button>
+
+        <button
+          class="orange"
+          (click)="decrease(product)">
+          ➖
+        </button>
+
+        <button
+          class="blue"
+          (click)="editProduct(product)">
+          ✏ Edit
+        </button>
+
+        <button
+          class="red"
+          (click)="deleteProduct(product.id)">
+          🗑 Delete
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
