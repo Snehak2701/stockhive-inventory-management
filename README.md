@@ -44,13 +44,13 @@ ng serve
 
 ## Live Demo
 
-https://YOUR-PROJECT.web.app
+https://stockhive-aae85.web.app
 
 ---
 
 ## GitHub Repository
 
-https://github.com/YOUR_USERNAME/stockhive-inventory-management
+https://github.com/snehak2701/stockhive-inventory-management
 
 ---
 
