@@ -1,59 +1,71 @@
-# Stockhive
+# 📦 StockHive
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.31.
+## Overview
 
-## Development server
+StockHive is a full-stack Inventory Management System developed using Angular, TypeScript, Firebase Authentication, Cloud Firestore, and Firebase Hosting.
 
-To start a local development server, run:
+The application enables authenticated users to manage inventory in real time by creating, updating, deleting, searching, and tracking products.
+
+---
+
+## Features
+
+- Firebase Authentication
+- Product CRUD Operations
+- Live Firestore Synchronization
+- Search by Product Name or SKU
+- Low Stock Filter
+- Increase / Decrease Stock
+- Stock Movement Tracking
+- Responsive Dashboard
+- Firebase Hosting Deployment
+
+---
+
+## Tech Stack
+
+- Angular
+- TypeScript
+- Firebase Authentication
+- Cloud Firestore
+- Firebase Hosting
+
+---
+
+## Installation
 
 ```bash
+npm install
+
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+---
 
-## Code scaffolding
+## Live Demo
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+https://YOUR-PROJECT.web.app
 
-```bash
-ng generate component component-name
-```
+---
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## GitHub Repository
 
-```bash
-ng generate --help
-```
+https://github.com/YOUR_USERNAME/stockhive-inventory-management
 
-## Building
+---
 
-To build the project run:
+## Login Credentials
 
-```bash
-ng build
-```
+Email:
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+admin@stockhive.com
 
-## Running unit tests
+Password:
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+********
 
-```bash
-ng test
-```
+---
 
-## Running end-to-end tests
+## Author
 
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Sneha K
